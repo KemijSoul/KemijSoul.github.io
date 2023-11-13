@@ -1,33 +1,38 @@
-<!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id01').style.display='block'">Account</button>
-
-<!-- The Modal -->
-<div id="id01" class="modal" display="none">
-  <span onclick="document.getElementById('id01').style.display='none'"class="close" title="Close Modal">&times;</span>
-  
-<!-- Modal Content -->
-  <form class="modal-content animate" action="/index.php">
-    <div class="imgcontainer">
-      <img src="https://KemijSoul.github.io/datapack/0a/avatar.png" alt="Avatar" class="avatar">
-    </div>
-    
-    <div class="container">
-      <label for="user"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="user" required>
-      <label for="code"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="code" required>
-      <br>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-      <br>
-      <button id="id02" type="button">Login</button>
-      <button id="id03" type="button">Join</button>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="forgot"><a href="https://KemijSoul.github.io/help.html">Need help?</a></span>
-    </div>
-  </form>
-</div>
+<html>
+	<body onload="checkCookie(cname, cvalue)">
+		<script>
+			function checkCookie(){
+				let id = getCookie("account_id");
+				if(id == "" || id == null){
+					window.open("https://www.KemijSoul.github.io/register.html","_self");
+				}else{
+					window.open("https://www.KemijSoul.github.io/login.html","_self");
+				}
+			}
+			function setCookie(cname, cvalue, exdays) {
+				const d = new Date();
+				d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				let expires = "expires="+ d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			function getCookie(cname) {
+				let name = cname + "=";
+				let decodedCookie = decodeURIComponent(document.cookie);
+				let ca = decodedCookie.split(';');
+				for(let i = 0; i <ca.length; i++) {
+					let c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+		</script>
+		<noscript>
+			Sorry, your browser does not support JavaScript!
+		</noscript>
+	</body>
+</html>
