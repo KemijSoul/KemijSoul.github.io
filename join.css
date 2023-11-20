@@ -1,4 +1,5 @@
-* {box-sizing: border-box}
+* {box-sizing: border-box 
+  background-image: url("KemijSoul.github.io/datapack/0a/background.png");}
 
 /* Add padding to containers */
 .container {
