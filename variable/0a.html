@@ -1,0 +1,11 @@
+<pre id="json"></pre>
+
+<script>
+  const data = [
+    { "Version": "0.0.1" }
+  ];
+
+  const dataString = JSON.stringify(data, null, 2);
+
+  document.getElementById("json").innerHTML = dataString;
+</script>
